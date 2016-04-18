@@ -1,0 +1,23 @@
+{
+  "name": "arduino_builder",
+  "version": "0.0.1",
+  "description": "Arduino builder based on Gulp",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "limitium",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/limitium/arduino_builder.git"
+  },
+  "bugs": {
+    "url": "https://github.com/limitium/arduino_builder/issues"
+  },
+  "homepage": "https://github.com/limitium/arduino_builder",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-shell": "^0.5.2"
+  }
+}
