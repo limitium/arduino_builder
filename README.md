@@ -62,4 +62,4 @@ You need to specify at least your port and arduino type
 $ gulp
 ```
 
-Congratz we are done. Now you can make changes in `firmware/firmware.ino` file and see how it works.
+Congratz we are done. Now you can make changes in `src/firmware/firmware.ino` file and see how it works.
