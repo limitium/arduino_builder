@@ -45,7 +45,7 @@ You need to specify at least your port and arduino type
 
 ```js
 {
-    sketch: 'arduino_builder.ino',
+    projectName: 'firmware',
     port: '/dev/ttyUSB0',
     speed: 9600,
     package: 'arduino',
@@ -62,4 +62,4 @@ You need to specify at least your port and arduino type
 $ gulp
 ```
 
-Congratz we are done. Now you can make changes in `arduino_builder.ino` file and see how it works.
+Congratz we are done. Now you can make changes in `firmware/firmware.ino` file and see how it works.

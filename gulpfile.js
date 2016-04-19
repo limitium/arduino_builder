@@ -2,7 +2,7 @@ var gulp = require('gulp');
 var shell = require('gulp-shell');
 
 var options = {
-    sketch: 'arduino_builder.ino',
+    projectName: 'firmware',
     port: '/dev/ttyUSB0',
     speed: 9600,
     package: 'arduino',
@@ -12,12 +12,12 @@ var options = {
     verbose: true
 };
 
-gulp.watch([options.sketch], ['default']);
+gulp.watch([options.projectName + '/*.cpp', options.projectName + '/*.h', options.projectName + '/*.ino'], ['default']);
 
 gulp.task('upload', function (done) {
     shell.task([
-        'killall -9 cat',
-        'arduino --board ' + options.package + ':' + options.architecture + ':' + options.board + ':cpu=' + options.cpu + ' --port ' + options.port + ' --upload ' + options.sketch + (options.verbose ? ' --verbose' : ''),
+        'killall -9 cat 2>/dev/null',
+        'arduino --board ' + options.package + ':' + options.architecture + ':' + options.board + ':cpu=' + options.cpu + ' --port ' + options.port + ' --upload ' + options.projectName + '/' + options.projectName + '.ino' + (options.verbose ? ' --verbose' : ''),
         'stty -F ' + options.port + ' cs8 ' + options.speed + ' ignbrk -brkint -imaxbel -opost -onlcr -isig -icanon -iexten -echo -echoe -echok -echoctl -echoke noflsh -ixon -crtscts'
     ])(function (err) {
         done();
