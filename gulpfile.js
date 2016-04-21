@@ -9,7 +9,9 @@ var options = {
     architecture: 'avr',
     board: 'nano',
     cpu: 'atmega328',
-    verbose: true
+    verbose: true,
+    noticeOnSuccess: true,
+    noticeOnFail: true
 };
 
 gulp.watch([
@@ -24,9 +26,14 @@ gulp.task('upload', function (done) {
         'stty -F ' + options.port + ' cs8 ' + options.speed + ' ignbrk -brkint -imaxbel -opost -onlcr -isig -icanon -iexten -echo -echoe -echok -echoctl -echoke noflsh -ixon -crtscts'
     ])(function (err) {
         done();
-        shell.task([
-            err ? 'paplay /usr/share/sounds/ubuntu/notifications/Amsterdam.ogg' : 'cat ' + options.port
-        ])();
+        var tasks = [];
+        if (err) {
+            options.noticeOnFail && tasks.push('paplay /usr/share/sounds/ubuntu/notifications/Amsterdam.ogg');
+        } else {
+            options.noticeOnSuccess && tasks.push('paplay /usr/share/sounds/ubuntu/notifications/Positive.ogg');
+            tasks.push('cat ' + options.port);
+        }
+        shell.task(tasks)();
     });
 });
 

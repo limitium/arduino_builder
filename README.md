@@ -41,7 +41,7 @@ $ npm install
 
 #### 6. Change options
 
-You need to specify at least your port and arduino type
+You need to specify at least your port and arduino type in `gulpfile.js`
 
 ```js
 {
@@ -52,7 +52,9 @@ You need to specify at least your port and arduino type
     architecture: 'avr',
     board: 'nano',
     cpu: 'atmega328',
-    verbose: true
+    verbose: true,
+    noticeOnSuccess: true,
+    noticeOnFail: true
 }
 ```
 
