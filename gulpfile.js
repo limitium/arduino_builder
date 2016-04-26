@@ -21,7 +21,7 @@ gulp.watch([
 
 gulp.task('upload', function (done) {
     shell.task([
-        'killall -9 cat 2>/dev/null',
+        'killall -9 -q cat',
         'arduino --board ' + options.package + ':' + options.architecture + ':' + options.board + ':cpu=' + options.cpu + ' --port ' + options.port + ' --upload src/' + options.projectName + '/' + options.projectName + '.ino' + (options.verbose ? ' --verbose' : ''),
         'stty -F ' + options.port + ' cs8 ' + options.speed + ' ignbrk -brkint -imaxbel -opost -onlcr -isig -icanon -iexten -echo -echoe -echok -echoctl -echoke noflsh -ixon -crtscts'
     ])(function (err) {
