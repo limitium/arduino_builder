@@ -1,4 +1,7 @@
 # Arduino uploader and serial monitor
+How it works:
+
+https://www.youtube.com/watch?v=Nu3YGMoXORI
 
 This project helps to track changes in your sketch file, automatically updates firmware, starts serial monitor and notices you by sound if error occurs. When changes have been saved:
 
